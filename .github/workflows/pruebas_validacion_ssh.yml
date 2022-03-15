@@ -12,7 +12,7 @@ jobs:
     - name: Authentcation
       uses: webfactory/ssh-agent@v0.5.4
       with:
-          ssh-private-key: ${{ secrets.my_test_actions }}
+          ssh-private-key: ${{ secrets.ACTION_SSH_KEY }}
     - name: Configuración de entorno de python
       uses: actions/setup-python@v2
       with:
