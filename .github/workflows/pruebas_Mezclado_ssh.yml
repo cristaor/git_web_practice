@@ -50,8 +50,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: automerge
-       uses: webfactory/ssh-agent@v0.5.4
-       with:
-          ssh-private-key: ${{ secrets.ACTION_SSH_KEY }}
-       env:
-          MERGE_LABELS: ""
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+            ssh-private-key: ${{ secrets.ACTION_SSH_KEY }}
+        env:
+            MERGE_LABELS: ""
