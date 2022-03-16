@@ -16,11 +16,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Validar origen
-      if: ${{ contains(github.event.head_commit.message, 'PROBANDO2') }}
-      env:
-         MENSAJE_ERROR3: Se realiza una prueba
-      run: echo "::set-output name=respuesta3::${MENSAJE_ERROR3}::${{ github.ref }}"
     - name: Correr pruebas
       id: correr-pruebas
       run: python -m unittest -v tests/test_persona.py
@@ -34,3 +29,11 @@ jobs:
       env:
         MENSAJE_EXITO: Todas las pruebas fueron exitosas
       run: echo "::set-output name=respuesta::${MENSAJE_EXITO}"
+
+   validar_origen:
+    - name: Validar origen
+      needs: job1
+      if: ${{ contains(github.event.head_commit.message, 'PROBANDO2') }} && github.ref == 'refs/heads/prueba2'
+      env:
+         MENSAJE_ERROR3: Es un push de la ram prueba2
+      run: echo "::set-output name=respuesta3::${MENSAJE_ERROR3}::${{ github.ref }}"
