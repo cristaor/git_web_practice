@@ -1,6 +1,7 @@
 name: Validar creacion de release
 on:
-  push: [ desarrollo ]
+  #rama desarrollo
+  push: [ prueba5 ]
 jobs:
   cargar_dependencias:
     name: Pruebas_dependencias
