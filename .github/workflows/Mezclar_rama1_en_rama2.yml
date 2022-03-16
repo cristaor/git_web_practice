@@ -17,11 +17,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: validar push
-      if: contains(github.event.head_commit.message, 'FUNCIONALIDAD_TERMINADA')==0
+      if: ${{ contains(github.event.head_commit.message, 'FUNCIONALIDAD_TERMINADA') }}==0
       run:  |
+        echo "${{toJSON(github.event)}}"
         echo "NO esta terminada la FUNCIONALIDAD"
     - name: Mezcla rama1 -> rama2
-      if: contains(github.event.head_commit.message, 'FUNCIONALIDAD_TERMINADA')
+      if: ${{ contains(github.event.head_commit.message, 'FUNCIONALIDAD_TERMINADA')}}
       uses: tukasz/direct-merge-action@master
       with:
         GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
@@ -44,7 +45,7 @@ jobs:
   mezclar_rama2:
     needs: cargar_dependencias
     name: Mezclar en rama desarrollo
-    if: contains(github.event.head_commit.message, 'FUNCIONALIDAD_TERMINADA')
+    if: ${{ contains(github.event.head_commit.message, 'FUNCIONALIDAD_TERMINADA') }}
     runs-on: ubuntu-latest
     steps:
     - name: Mezcla rama2 -> rama1
