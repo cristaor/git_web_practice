@@ -23,7 +23,7 @@ jobs:
       if: ${{ contains(github.event.head_commit.message, 'PROBANDO') }}
       env:
          MENSAJE_ERROR3: Se realiza una prueba
-      run: echo "::set-output name=respuesta::${MENSAJE_ERROR3}::${{ github.ref }}"
+      run: echo "::set-output name=respuesta3::${MENSAJE_ERROR3}::${{ github.ref }}"
     - name: Correr pruebas
       id: correr-pruebas
       run: python -m unittest -v tests/test_persona.py
