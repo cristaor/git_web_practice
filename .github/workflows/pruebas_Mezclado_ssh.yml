@@ -1,4 +1,4 @@
-name: Pruebas unitarias con ssh2
+name: Pruebas Merge
 on:
   pull_request:
     types:
@@ -50,8 +50,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: automerge
-        uses: webfactory/ssh-agent@v0.5.4
-        with:
-            ssh-private-key: ${{ secrets.ACTION_SSH_KEY }}
+        uses: "pascalgn/automerge-action@v0.14.3"
         env:
-            MERGE_LABELS: ""
+          GITHUB_TOKEN: "${{ secrets.ACTION_TOKEN }}"
+          MERGE_LABELS: ""
+            
