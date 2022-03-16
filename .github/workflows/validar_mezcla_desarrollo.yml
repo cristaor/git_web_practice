@@ -17,7 +17,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: validar push
-      if: ${{ contains(github.event.head_commit.message, 'FUNCIONALIDAD_TERMINADA') == True}}
+      if: ${{ contains(github.event.head_commit.message, 'FUNCIONALIDAD_TERMINADA') == false }}
       run:  |
         echo "NO esta terminada la FUNCIONALIDAD"
     - name: Mezcla rama1 -> rama2
