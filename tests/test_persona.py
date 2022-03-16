@@ -6,7 +6,7 @@ from sqlalchemy import text
 class PersonaTestCase(unittest.TestCase):
 
    def setUp(self):
-      self.persona1 = Persona(nombre='Alejandra', edad=45)
+      self.persona1 = Persona(nombre='Alejandro', edad=45)
       self.persona2 = Persona(nombre='Diego', edad=22)
       self.persona3 = Persona(nombre='Alejandra', edad=25)
       self.persona4 = Persona(nombre='Diana', edad=25)
@@ -43,4 +43,8 @@ class PersonaTestCase(unittest.TestCase):
 
    def test_instancia_clase(self):
       self.assertIsInstance(self.persona1, Persona)
+      self.assertNotIsInstance(self.grupo, Persona)
+
+   def test_persona2(self):
+      self.assertIsInstance(self.persona2, Persona)
       self.assertNotIsInstance(self.grupo, Persona)
