@@ -9,6 +9,7 @@ class PersonaTestCase(unittest.TestCase):
       self.persona1 = Persona(nombre='Alejandra', edad=25)
       self.persona2 = Persona(nombre='Diego', edad=22)
       self.persona3 = Persona(nombre='Alejandra', edad=25)
+      self.persona4 = Persona(nombre='Diana', edad=25)
       self.persona4 = Persona(nombre='Juan', edad=35)
       self.grupo = [self.persona1, self.persona2, self.persona3]
     
