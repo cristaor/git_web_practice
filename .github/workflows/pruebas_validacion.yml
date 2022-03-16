@@ -1,7 +1,9 @@
 name: Pruebas unitarias con validacion
 on:
   push:
-    branches: [ master prueba]
+    branches:
+      - master
+      - prueba
 jobs:
   job1:
     name: Pruebas_yaml2
