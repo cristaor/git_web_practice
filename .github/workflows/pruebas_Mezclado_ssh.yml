@@ -52,5 +52,6 @@ jobs:
       - name: automerge
         uses: "pascalgn/automerge-action@v0.14.3"
         env:
-            MERGE_LABELS: "Mezclando con Master!!!"
-            GITHUB_TOKEN: "${{ secrets.ACTION_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.ACTION_TOKEN }}"
+          MERGE_LABELS: ""
+            
