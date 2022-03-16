@@ -49,7 +49,7 @@ jobs:
   mezclar_rama2:
     needs: cargar_dependencias
     name: Mezclar en rama desarrollo
-    if: ${{ env.is_finished }}
+    if: ${{ contains(github.event.head_commit.message, 'FUNCIONALIDAD_TERMINADA') }}
     runs-on: ubuntu-latest
     steps:
     - name: Mezcla rama2 -> rama1
