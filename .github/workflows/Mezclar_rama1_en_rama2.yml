@@ -16,23 +16,16 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
-  mezclar_rama1:
-    name: Mezcla rama1 -> rama2
-    if: ${{ contains(github.event.head_commit.message, 'FUNCIONALIDAD_TERMINADA') }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: tukasz/direct-merge-action@master
-        with:
-            GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
-            source-branch: master
-            target-branch: ${{ github.ref }}
-
-  probar:
-    needs: mezclar_rama1
-    name: Correr pruebas en funcionalidad
-    runs-on: ubuntu-latest
-    steps:
+    - name: validar push
+      if: !${{ contains(github.event.head_commit.message, 'FUNCIONALIDAD_TERMINADA') }}
+      run: exit 0
+    - name: Mezcla rama1 -> rama2
+      if: ${{ contains(github.event.head_commit.message, 'FUNCIONALIDAD_TERMINADA') }}
+      uses: tukasz/direct-merge-action@master
+      with:
+        GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+        source-branch: master
+        target-branch: ${{ github.ref }}
     - name: Correr pruebas
       id: correr-pruebas
       run: python -m unittest -v tests/test_persona.py
@@ -48,7 +41,7 @@ jobs:
       run: echo "::set-output name=respuesta::${MENSAJE_EXITO}"
 
   mezclar_rama2:
-    needs: probar
+    needs: cargar_dependencias
     name: Mezclar en rama desarrollo
     runs-on: ubuntu-latest
     steps:
