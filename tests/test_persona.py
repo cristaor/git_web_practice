@@ -11,6 +11,7 @@ class PersonaTestCase(unittest.TestCase):
       self.persona3 = Persona(nombre='Alejandra', edad=25)
       self.persona4 = Persona(nombre='Diana', edad=25)
       self.persona5 = Persona(nombre='Juan', edad=55)
+
       self.grupo = [self.persona1, self.persona2, self.persona3]
 
    def test_constructor(self):
@@ -42,4 +43,9 @@ class PersonaTestCase(unittest.TestCase):
 
    def test_instancia_clase(self):
       self.assertIsInstance(self.persona1, Persona)
+      self.assertNotIsInstance(self.grupo, Persona)
+
+   def test_persona2(self):
+      self.assertIsInstance(self.persona2, Persona)
+      self.assertIsInstance(self.persona3, Persona)
       self.assertNotIsInstance(self.grupo, Persona)
