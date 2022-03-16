@@ -53,3 +53,4 @@ class PersonaTestCase(unittest.TestCase):
       self.assertIsInstance(self.persona1, Persona)
       self.assertIsInstance(self.persona4, Persona)
       self.assertNotIsInstance(self.grupo, Persona)
+      self.assertNotIsInstance(self.grupo, Persona)
