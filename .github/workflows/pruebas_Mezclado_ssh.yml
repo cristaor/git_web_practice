@@ -1,4 +1,4 @@
-name: Pruebas unitarias con ssh2
+name: Pruebas Merge
 on:
   pull_request:
     types:
