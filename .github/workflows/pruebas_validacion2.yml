@@ -32,9 +32,9 @@ jobs:
 
   validar_origen:
     needs: job1
-    - name: Validar origen
-      runs-on: ubuntu-latest
-      steps:
+    name: Validar origen
+    runs-on: ubuntu-latest
+    steps:
       - name: validar_rama
         if: ${{ contains(github.event.head_commit.message, 'PROBANDO2') }} && github.ref == 'refs/heads/prueba2'
         env:
