@@ -10,7 +10,11 @@ class PersonaTestCase(unittest.TestCase):
       self.persona2 = Persona(nombre='Diego', edad=22)
       self.persona3 = Persona(nombre='Alejandra', edad=25)
       self.persona4 = Persona(nombre='Diana', edad=25)
+<<<<<<< HEAD
       self.persona5 = Persona(nombre='Juan', edad=55)
+=======
+      self.persona5 = Persona(nombre='Juan', edad=105)
+>>>>>>> 969d6a61dabed79b0d7a791a06ed0b4a29192e28
       self.grupo = [self.persona1, self.persona2, self.persona3]
 
    def test_constructor(self):
