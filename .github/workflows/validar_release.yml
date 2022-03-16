@@ -25,7 +25,9 @@ jobs:
     - name: Crear rama
       if: ${{ contains(github.event.head_commit.message, 'NUEVO_RELEASE')}}
       run: |
-        git checkout -b release
+        echo "Creando una nueva rama"
+        git branch release
+        git checkout release
         git push -f -u origin release
     - name: Mezcla rama1 -> rama2
       if: ${{ contains(github.event.head_commit.message, 'NUEVO_RELEASE')}}
